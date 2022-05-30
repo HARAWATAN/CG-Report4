@@ -72,7 +72,7 @@
         var mat_pl = new THREE.MeshPhongMaterial();
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
-        mat_pl = texture2;
+        mat_pl.map = texture2;
 
         // 箱を作成
         var geometry1 = new THREE.BoxGeometry(0.8, 0.8, 0.8);
