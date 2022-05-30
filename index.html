@@ -96,14 +96,14 @@
 
         var mate = new THREE.MeshPhongMaterial({ color: 0xffdead });
 
-        var g4_lage = 50, g4_y = 0.1;
+        var g4_lage = 80, g4_y = 0.1;
         var geometry4 = new THREE.BoxGeometry(g4_lage, g4_y, g4_lage);
         var plane1 = new THREE.Mesh(geometry4, mat_pl);
         var plane2 = new THREE.Mesh(geometry4, mat_pl);
         var plane3 = new THREE.Mesh(geometry4, mat_pl);
         var plane4 = new THREE.Mesh(geometry4, mat_pl);
-        var plane5 = new THREE.Mesh(geometry4, mate);
-        var plane6 = new THREE.Mesh(geometry4, mate);
+        var plane5 = new THREE.Mesh(geometry4, mat_pl);
+        var plane6 = new THREE.Mesh(geometry4, mat_pl);
         plane1.position.set(0,0,0);
         scene.add(plane1);
         plane2.position.set(g4_lage/2, g4_lage/2,0);
