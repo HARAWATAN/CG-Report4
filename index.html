@@ -67,8 +67,8 @@
 
         // テクスチャー読み込み
         var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("Auswahl/1.jpg");
-        var texture2 = textureLoader.load("water/3.jpg");
+        var texture = textureLoader.load("wall03.jpg");
+        var texture2 = textureLoader.load("water/9.jpg");
         var mat_pl = new THREE.MeshPhongMaterial();
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
@@ -96,7 +96,7 @@
 
         var mate = new THREE.MeshPhongMaterial({ color: 0xffdead });
 
-        var g4_lage = 80, g4_y = 0.1;
+        var g4_lage = 100, g4_y = 0.1;
         var geometry4 = new THREE.BoxGeometry(g4_lage, g4_y, g4_lage);
         var plane1 = new THREE.Mesh(geometry4, mat_pl);
         var plane2 = new THREE.Mesh(geometry4, mat_pl);
