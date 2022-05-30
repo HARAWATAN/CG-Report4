@@ -25,7 +25,7 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(0, 0, 5);
+        camera.position.set(0, 25, 0);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera, document.body); 
@@ -96,25 +96,34 @@
 
         var mate = new THREE.MeshPhongMaterial({ color: 0xffdead });
 
-        var geometry4 = new THREE.BoxGeometry(10, 0.1, 10);
+        var g4_lage = 50, g4_y = 0.1;
+        var geometry4 = new THREE.BoxGeometry(g4_lage, g4_y, g4_lage);
         var plane1 = new THREE.Mesh(geometry4, mat_pl);
         var plane2 = new THREE.Mesh(geometry4, mat_pl);
         var plane3 = new THREE.Mesh(geometry4, mat_pl);
         var plane4 = new THREE.Mesh(geometry4, mat_pl);
-        var plane5 = new THREE.Mesh(geometry4, mat_pl);
-        var plane6 = new THREE.Mesh(geometry4, mat_pl);
+        var plane5 = new THREE.Mesh(geometry4, mate);
+        var plane6 = new THREE.Mesh(geometry4, mate);
         plane1.position.set(0,0,0);
         scene.add(plane1);
-        plane2.position.set(5,5,0);
+        plane2.position.set(g4_lage/2, g4_lage/2,0);
         plane2.rotation.x -= 3.14/2;
         plane2.rotation.z -= 3.14/2;
         scene.add(plane2);
-        plane3.position.set(-5,5,0);
+        plane3.position.set(-g4_lage/2, g4_lage/2,0);
         plane3.rotation.x -= 3.14/2;
         plane3.rotation.z -= 3.14/2;
         scene.add(plane3);
-        plane4.position.set(0,10,0);
+        plane4.position.set(0,g4_lage,0);
         scene.add(plane4);
+        plane5.position.set(0,g4_lage/2, g4_lage/2);
+        plane5.rotation.y -= 3.14/2;
+        plane5.rotation.z -= 3.14/2;
+        scene.add(plane5);
+        plane6.position.set(0,g4_lage/2,-g4_lage/2);
+        plane6.rotation.y -= 3.14/2;
+        plane6.rotation.z -= 3.14/2;
+        scene.add(plane6);
 
         update();
 
