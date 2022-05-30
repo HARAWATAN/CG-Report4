@@ -36,7 +36,7 @@
         // シーンに追加
         scene.add(directionalLight1);
         // 平行光源2
-        var directionalLight2 = new THREE.DirectionalLight(0x888888);
+        var directionalLight2 = new THREE.DirectionalLight(0xfffff);
         directionalLight2.position.set(-10, -10, 10);
         // シーンに追加
         scene.add(directionalLight2);
@@ -50,13 +50,11 @@
         // テクスチャー読み込み
         var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("Auswahl/1.jpg");
+        var texture2 = textureLoader.load("Auswahl/18.jpg");
+        var mat_pl = new THREE.MeshPhongMaterial();
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
-  
-        // バンプマップ読み込み
-        var bump = textureLoader.load("Auswahl/7.jpg");
-        mat.bumpMap = bump;
-        mat.bumpscale = 0.2;
+        mat_pl = texture2;
 
         // 箱を作成
         var geometry1 = new THREE.BoxGeometry(0.8, 0.8, 0.8);
@@ -78,6 +76,21 @@
         Cylinder.position.set(1.5,0,0);
         scene.add(Cylinder);
 
+        var geometry4 = new THREE.PlaneGeometry(10, 1, 1);
+        var plane1 = new THREE.Mesh(geometry4, mat_pl);
+        var plane2 = new THREE.Mesh(geometry4, mat_pl);
+        var plane3 = new THREE.Mesh(geometry4, mat_pl);
+        var plane4 = new THREE.Mesh(geometry4, mat_pl);
+        plane1.position.set(0,0,0);
+        scene.add(plane1);
+        plane2.position.set(10,0,0);
+        plane2.rotation.x += 90;
+        scene.add(plane2);
+        plane3.position.set(-10,0,0);
+        plane3.rotation.x += 90;
+        scene.add(plane3);
+        plane4.position.set(0,10,0);
+        scene.add(plane4);
 
         update();
 
