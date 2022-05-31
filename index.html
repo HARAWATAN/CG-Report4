@@ -94,11 +94,12 @@
         var geometry3 = new THREE.CylinderGeometry( 0.2, 0.5, 0.5, 20, 4 );
         var Cylinder = new THREE.Mesh(geometry3, mat);
         Cylinder.position.set(1.5,0,0);
+        Cylinder.scale.set(1.5,2,1.5);
         scene.add(Cylinder);
 
         var mate = new THREE.MeshPhongMaterial({ color: 0xffdead });
 
-        var g4_lage = 20, g4_y = 0.1;
+        var g4_lage = 30, g4_y = 0.1;
         var geometry4 = new THREE.BoxGeometry(g4_lage, g4_y, g4_lage);
         var plane1 = new THREE.Mesh(geometry4, mat_pl);
         var plane2 = new THREE.Mesh(geometry4, mat_pl);
@@ -196,8 +197,11 @@
         scene.add(fish1);
   
         fish2.add(fish_tail_2, fish_body_2, fish_eye_1_2, fish_eye_2_2);
-        fish2.position.set( 1,  -1.5, 0);
-        fish2.rotation.z += 3.14/2;
+        fish2.position.set( 1,  7, 0);
+        //fish2.rotation.x += 3.14;
+        //fish2.rotation.y += 3.14/2;
+        fish2.rotation.z += 3.14;
+
         scene.add(fish2);
 
         fish3.add(fish_tail_3, fish_body_3, fish_eye_1_3, fish_eye_2_3);
@@ -235,28 +239,23 @@
             }
           }
           fish1.position.x -= 0.01;
-          if(fish1.position.x < -20)
+          if(fish1.position.x < -g4_lage)
           {
-            fish1.position.x = 10;
+            fish1.position.x = g4_lage;
           }
 
-          fish2.position.y -= 0.02;
-          if(fish2.position.y < -10)
+          fish2.position.x += 0.1;
+          if(fish2.position.x > g4_lage)
           {
-            fish2.position.y = 15;
+            fish2.position.x = -g4_lage;
           }
 
           fish3.position.z += 0.05;
-          if(fish3.position.z > 10)
+          if(fish3.position.z > g4_lage)
           {
-            fish3.position.z = -15;
+            fish3.position.z = -g4_lage;
           }
 
-
-
-          // 円柱を回転させる
-          Cylinder.rotation.x += 0.01;
-          Cylinder.rotation.y += 0.01;
         }
       }
     </script>
