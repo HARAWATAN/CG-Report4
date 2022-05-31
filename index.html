@@ -20,6 +20,7 @@
         var renderer = new THREE.WebGLRenderer();
         document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
+        renderer.shadowMap.enabled = true;
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -34,7 +35,8 @@
         
         // 平行光源1
         var directionalLight1 = new THREE.DirectionalLight(0xffffff);
-        directionalLight1.position.set(5, 5, 5);
+        directionalLight1.position.set(0, 15, 0);
+        directionalLight1.castShadow = true;
         // シーンに追加
         scene.add(directionalLight1);
         // 平行光源2
@@ -97,7 +99,7 @@
         Cylinder.scale.set(1.5,2,1.5);
         scene.add(Cylinder);
 
-        var mate = new THREE.MeshPhongMaterial({ color: 0xffdead });
+        //var mate = new THREE.MeshPhongMaterial({ color: 0xffdead });
 
         var g4_lage = 30, g4_y = 0.1;
         var geometry4 = new THREE.BoxGeometry(g4_lage, g4_y, g4_lage);
@@ -108,6 +110,7 @@
         var plane5 = new THREE.Mesh(geometry4, mat_pl);
         var plane6 = new THREE.Mesh(geometry4, mat_pl);
         plane1.position.set(0,0,0);
+        plane1.receiveShadow = true;
         scene.add(plane1);
         plane2.position.set(g4_lage/2, g4_lage/2,0);
         plane2.rotation.x -= 3.14/2;
@@ -194,19 +197,20 @@
         const fish3 = new THREE.Group()
         fish1.add(fish_tail, fish_body, fish_eye_1, fish_eye_2);
         fish1.position.set(-1,  0.5, 0.85);
+        fish1.castShadow = true;
         scene.add(fish1);
   
         fish2.add(fish_tail_2, fish_body_2, fish_eye_1_2, fish_eye_2_2);
         fish2.position.set( 1,  7, 0);
-        //fish2.rotation.x += 3.14;
-        //fish2.rotation.y += 3.14/2;
         fish2.rotation.z += 3.14;
+        fish2.castShadow = true;
 
         scene.add(fish2);
 
         fish3.add(fish_tail_3, fish_body_3, fish_eye_1_3, fish_eye_2_3);
         fish3.position.set( 1,  -1.5, 0);
         fish3.rotation.y += 3.14/2;
+        fish3.castShadow = true;
         scene.add(fish3);
         
 
