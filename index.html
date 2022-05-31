@@ -45,6 +45,23 @@
         // シーンに追加
         scene.add(directionalLight2);
 
+        var directionalLight3 = new THREE.DirectionalLight(0xffffff);
+        directionalLight3.position.set(0, 0, 0);
+        // シーンに追加
+        scene.add(directionalLight3);
+
+        var directionalLight4 = new THREE.DirectionalLight(0xffffff);
+        directionalLight4.position.set(0, 0, 0);
+        // シーンに追加
+        scene.add(directionalLight4);
+        directionalLight4.rotation.z += 3.14/2;
+
+        var directionalLight5 = new THREE.DirectionalLight(0xfffff);
+        directionalLight5.position.set(0, 0, 0);
+        // シーンに追加
+        scene.add(directionalLight5);
+        directionalLight5.rotation.z -= 3.14/2;
+
 
         // helper
         const gridHelper = new THREE.GridHelper(2,10); // size, step
